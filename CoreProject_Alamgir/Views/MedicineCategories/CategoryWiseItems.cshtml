@@ -1,0 +1,50 @@
+﻿@model IEnumerable<CoreProject_Alamgir.Models.MedicineItem>
+
+<h2 style="text-align:center;font-family:Georgia, 'Times New Roman', Times, serif">Medicine Of This Category</h2>
+
+
+<table class="table table-bordered table-hover table-striped justify-content-center">
+    <tr>
+
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Description)
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.EntryDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Quantity)
+        </th>
+        <th>Action</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.EntryDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Quantity)
+            </td>
+            <td>
+                @*<a asp-action="Edit" asp-route-id="@item.ID" class="btn btn-default">Edit</a>*@
+
+                <a asp-action="DeleteItem" asp-route-id="@item.ID" class="btn btn-default">Delete</a>
+            </td>
+        </tr>
+    }
+
+</table>
